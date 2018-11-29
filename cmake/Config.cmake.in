@@ -23,11 +23,12 @@ if(@OpenGR_USE_CHEALPIX@)
   include("${CMAKE_CURRENT_LIST_DIR}/chealpixTargets.cmake")
 endif(@OpenGR_USE_CHEALPIX@)
 
-include("${CMAKE_CURRENT_LIST_DIR}/OpenGR-AccelLibTargets.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/OpenGR-IOLibTargets.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/OpenGR-AlgoLibTargets.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/OpenGR-UtilsLibTargets.cmake")
-include("${CMAKE_CURRENT_LIST_DIR}/OpenGRConfigVersion.cmake")
+
+include("@OpenGR_EXPORT_TARGET_DIR@/OpenGR-AccelLibTargets.cmake")
+include("@OpenGR_EXPORT_TARGET_DIR@/OpenGR-IOLibTargets.cmake")
+include("@OpenGR_EXPORT_TARGET_DIR@/OpenGR-AlgoLibTargets.cmake")
+include("@OpenGR_EXPORT_TARGET_DIR@/OpenGR-UtilsLibTargets.cmake")
+include("@OpenGR_EXPORT_TARGET_DIR@/OpenGRConfigVersion.cmake")
 
 
 # Compute paths
