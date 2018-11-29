@@ -285,7 +285,7 @@ export(TARGETS opengr_algo FILE "${CMAKE_BINARY_DIR}/cmake/OpenGR-AlgoLibTargets
 export(TARGETS opengr_accel FILE "${CMAKE_BINARY_DIR}/cmake/OpenGR-AccelLibTargets.cmake")
 export(TARGETS opengr_utils FILE "${CMAKE_BINARY_DIR}/cmake/OpenGR-UtilsLibTargets.cmake")
 if(OpenGR_USE_CHEALPIX)
-    export(TARGETS opengr_chealpix FILE "${CMAKE_BINARY_DIR}/cmake/OpenGR-chealpixTargets.cmake")
+    export(TARGETS chealpix FILE "${CMAKE_BINARY_DIR}/cmake/chealpixTargets.cmake")
 endif(OpenGR_USE_CHEALPIX)
 file(COPY "${version_config}" DESTINATION "${CMAKE_BINARY_DIR}/cmake"
 )
