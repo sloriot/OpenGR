@@ -24,9 +24,6 @@ set(ASSETS_DIR ${PROJECT_SOURCE_DIR}/assets)
 set(SCRIPTS_DIR ${PROJECT_SOURCE_DIR}/scripts)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-# Used by Config.cmake.in
-set(OpenGR_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
-
 ################################################################################
 ## GUARDS
 ################################################################################
@@ -256,13 +253,30 @@ write_basic_package_version_file(
 )
 
 # Configure '<PROJECT-NAME>Config.cmake'
+# version to be installed
 # Use variables:
 #   * targets_export_name
 #   * PROJECT_NAME
+# Used by Config.cmake.in
+set(OpenGR_INSTALL_INC_DIR "${CMAKE_INSTALL_PREFIX}/include")
+set(OpenGR_INSTALL_LIB_DIR "${CMAKE_INSTALL_PREFIX}/lib")
 configure_package_config_file(
     "cmake/Config.cmake.in"
     "${project_config}"
     INSTALL_DESTINATION "${config_install_dir}"
+)
+
+# Configure '<PROJECT-NAME>Config.cmake'
+# version to be used with the current build directory
+# Use variables:
+#   * targets_export_name
+#   * PROJECT_NAME
+# Used by Config.cmake.in
+set(OpenGR_INSTALL_INC_DIR "${CMAKE_SOURCE_DIR}/src")
+set(OpenGR_INSTALL_LIB_DIR "${CMAKE_BINARY_DIR}/src/gr/io")
+configure_file(
+    "cmake/Config.cmake.in"
+    "${CMAKE_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
 )
 
 install(EXPORT OpenGR-IOLibTargets    DESTINATION ${config_install_dir})
